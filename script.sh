@@ -10,9 +10,14 @@ docker push mateuscantanhede/projeto-database:1.0
 
 echo "Criando os serviços do kuster kubernetes......."
 
-kubectl apply -f ./services.yml
+kubectl apply -f ./services.yml --record
+
+
+echo "Criando os secrets do kuster kubernetes......"
+
+kubectl apply -f ./secrets.yml --record
 
 echo "Criando os deployments do kuster kubernetes......"
 
-kubectl apply -f ./deployment.yml
+kubectl apply -f ./deployment.yml --record
 
